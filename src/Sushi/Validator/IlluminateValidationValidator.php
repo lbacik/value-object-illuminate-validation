@@ -14,11 +14,14 @@ class IlluminateValidationValidator implements ValidatorInterface
 {
     const LOCALE = 'en';
 
+    const INSTANCEOF_KEYWORD = 'instance_of';
+
     private $validatorFactory;
 
     public function __construct()
     {
         $this->validatorFactory = $this->instantiateValidationFactory();
+        $this->instanceOfExtension();
     }
 
     public function validate(ValueObject $valueObject): void
@@ -40,5 +43,19 @@ class IlluminateValidationValidator implements ValidatorInterface
         $validationFactory = new ValidationFactory($translator, null);
 
         return $validationFactory;
+    }
+
+    private function instanceOfExtension(): void
+    {
+        $this
+            ->validatorFactory
+            ->extend(self::INSTANCEOF_KEYWORD, function ($attribute, $value, $classNameArray) {
+                foreach($classNameArray as $className) {
+                    if (! $value instanceof $className) {
+                        return false;
+                    }
+                }
+                return true;
+            });
     }
 }
