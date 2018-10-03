@@ -15,7 +15,7 @@
   },
   "require": {
     "php": ">=7.1",
-    "lbacik/value-object": "^0.0.1",
+    "lbacik/value-object": "*",
     "illuminate/validation": "^5.7"
   },
   "autoload": {
