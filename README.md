@@ -1,4 +1,6 @@
 
+[![Build Status](https://travis-ci.com/lbacik/value-object-illuminate-validation.svg?branch=master)](https://travis-ci.com/lbacik/value-object-illuminate-validation)
+
 Validator wrapper (to be used with ValueObject) for Illuminate Validation class
 
 ValueObject implementation: https://github.com/lbacik/value-object
