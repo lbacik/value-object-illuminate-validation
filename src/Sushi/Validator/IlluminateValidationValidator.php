@@ -26,8 +26,8 @@ class IlluminateValidationValidator implements ValidatorInterface
 
     public function validate(ValueObject $valueObject): void
     {
-        $data = $valueObject->toArray();
         $rules = $valueObject->getKeysWithDefinitions();
+        $data = $this->getValues($valueObject, array_keys($rules));
 
         $this
             ->validatorFactory
@@ -57,5 +57,14 @@ class IlluminateValidationValidator implements ValidatorInterface
                 }
                 return true;
             });
+    }
+
+    private function getValues(ValueObject $valueObject, array $keys): array
+    {
+        $data = [];
+        foreach ($keys as $key) {
+            $data[$key] = $valueObject[$key];
+        }
+        return $data;
     }
 }
