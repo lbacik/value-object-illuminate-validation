@@ -7,6 +7,7 @@ namespace Sushi\Validator;
 use Illuminate\Translation\ArrayLoader;
 use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory as ValidationFactory;
+use Illuminate\Validation\ValidationException;
 use Sushi\ValidatorInterface;
 use Sushi\ValueObject;
 
@@ -29,10 +30,14 @@ class IlluminateValidationValidator implements ValidatorInterface
         $rules = $valueObject->getKeysWithDefinitions();
         $data = $this->getValues($valueObject, array_keys($rules));
 
-        $this
-            ->validatorFactory
-            ->make($data, $rules)
-            ->validate();
+        try{
+            $this
+                ->validatorFactory
+                ->make($data, $rules)
+                ->validate();
+        } catch (ValidationException $exception) {
+            throw Exception\ValidationException::errors(class_basename($valueObject), $exception->errors());
+        }
     }
 
     private function instantiateValidationFactory(): ValidationFactory

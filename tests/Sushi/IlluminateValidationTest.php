@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Illuminate\Validation\ValidationException;
+use Sushi\Validator\Exception\ValidationException;
 use Sushi\Validator\IlluminateValidationValidator;
 use Sushi\Validator\KeysValidator;
 use Sushi\ValueObject;
