@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sushi\Validator;
 
+use Illuminate\Support\MessageBag;
 use Illuminate\Translation\ArrayLoader;
 use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory as ValidationFactory;
@@ -13,9 +14,11 @@ use Sushi\ValueObject;
 
 class IlluminateValidationValidator implements ValidatorInterface
 {
-    const LOCALE = 'en';
+    public const LOCALE = 'en';
 
-    const INSTANCEOF_KEYWORD = 'instance_of';
+    public const INSTANCEOF_KEYWORD = 'instance_of';
+
+    public const NO_DATA = 'No data';
 
     private $validatorFactory;
 
@@ -36,7 +39,14 @@ class IlluminateValidationValidator implements ValidatorInterface
                 ->make($data, $rules)
                 ->validate();
         } catch (ValidationException $exception) {
-            throw Exception\ValidationException::errors(class_basename($valueObject), $exception->errors());
+            /** @var MessageBag $bag */
+            if (($bag = $exception->validator->errors()) instanceof MessageBag) {
+                $errors = $bag->toArray();
+            } else {
+                $errors = [self::NO_DATA];
+            }
+
+            throw Exception\ValidationException::errors(class_basename($valueObject), $errors);
         }
     }
 

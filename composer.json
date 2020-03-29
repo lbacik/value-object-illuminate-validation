@@ -16,7 +16,7 @@
   "require": {
     "php": ">=7.1",
     "lbacik/value-object": "*",
-    "illuminate/validation": "^5.4"
+    "illuminate/validation": "^5.4.36"
   },
   "autoload": {
     "psr-4": {
