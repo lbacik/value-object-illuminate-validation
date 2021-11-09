@@ -14,6 +14,6 @@ class ValidationException extends RuntimeException
         foreach ($errors as $key => $err) {
             $items[] = "{$key} - " . implode('/', $err);
         }
-        return new static ("Validation problems in {$class}: " . implode(',', $items));
+        return new static("Validation problems in {$class}: " . implode(',', $items));
     }
 }

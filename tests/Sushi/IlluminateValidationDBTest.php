@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Tests\Sushi;
 
 use PHPUnit\Framework\TestCase;
 use Sushi\Validator\IlluminateValidationValidator;
@@ -11,7 +11,7 @@ use Sushi\ValueObject;
 
 class IlluminateValidationDBTest extends TestCase
 {
-    const VALIDATORS = [
+    public const VALIDATORS = [
         KeysValidator::class,
         IlluminateValidationValidator::class,
     ];

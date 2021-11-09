@@ -33,7 +33,7 @@ class IlluminateValidationValidator implements ValidatorInterface
         $rules = $valueObject->getKeysWithDefinitions();
         $data = $this->getValues($valueObject, array_keys($rules));
 
-        try{
+        try {
             $this
                 ->validatorFactory
                 ->make($data, $rules)
@@ -65,7 +65,7 @@ class IlluminateValidationValidator implements ValidatorInterface
         $this
             ->validatorFactory
             ->extend(self::INSTANCEOF_KEYWORD, function ($attribute, $value, $classNameArray) {
-                foreach($classNameArray as $className) {
+                foreach ($classNameArray as $className) {
                     if (! $value instanceof $className) {
                         return false;
                     }

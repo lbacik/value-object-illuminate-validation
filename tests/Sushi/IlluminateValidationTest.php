@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Tests\Sushi;
 
 use PHPUnit\Framework\TestCase;
 use Sushi\Validator\Exception\ValidationException;
@@ -13,12 +13,12 @@ use Sushi\Validator\Exceptions\NotExistingKeyException as ValidatorNotExistingKe
 
 class IlluminateValidationTest extends TestCase
 {
-    const VALIDATORS = [
+    public const VALIDATORS = [
         KeysValidator::class,
         IlluminateValidationValidator::class,
     ];
-    const KEYS = [];
-    const EXAMPLE_DATA = [];
+    public const KEYS = [];
+    public const EXAMPLE_DATA = [];
 
     public function testInstantiate(): void
     {

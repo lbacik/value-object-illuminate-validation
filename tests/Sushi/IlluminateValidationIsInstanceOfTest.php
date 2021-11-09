@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Tests\Sushi;
 
 use PHPUnit\Framework\TestCase;
 use Sushi\Validator\Exception\ValidationException;
@@ -12,7 +12,7 @@ use Sushi\ValueObject\Fields;
 
 class IlluminateValidationIsInstanceOfTest extends TestCase
 {
-    const VALIDATORS = [
+    public const VALIDATORS = [
         IlluminateValidationValidator::class,
     ];
 
