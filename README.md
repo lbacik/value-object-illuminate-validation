@@ -3,7 +3,8 @@
 
 Validator wrapper (to be used with ValueObject) for Illuminate Validation class
 
-ValueObject implementation: https://github.com/lbacik/value-object
+ValueObject implementation: [https://github.com/lbacik/value-object](https://github.com/lbacik/value-object)
+
 Laravel documentation about using Laravel's validator features: https://laravel.com/docs/5.7/validation
 
 Example value object declaration:
