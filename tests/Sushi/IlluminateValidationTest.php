@@ -48,8 +48,8 @@ class IlluminateValidationTest extends TestCase
         $vo = new class ([
             'name' => 'Ala',
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'name' => 'required|string|max:5',
             ];
         };
@@ -63,8 +63,8 @@ class IlluminateValidationTest extends TestCase
         $this->expectException(ValidationException::class);
 
         new class ([]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'name' => 'required|string|max:5',
             ];
         };
@@ -77,8 +77,8 @@ class IlluminateValidationTest extends TestCase
         new class ([
             'name' => 0,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'name' => 'required|string|max:5',
             ];
         };
@@ -91,8 +91,8 @@ class IlluminateValidationTest extends TestCase
         new class ([
             'name' => '123456',
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'name' => 'required|string|max:5',
             ];
         };
@@ -105,8 +105,8 @@ class IlluminateValidationTest extends TestCase
             'name' => 'Ala',
             'desc' => 'Sample description',
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'id' => 'required|integer|min:1',
                 'name' => 'required|string|max:5',
                 'desc' => 'nullable|string|max:100',
@@ -122,8 +122,8 @@ class IlluminateValidationTest extends TestCase
     public function testValidationOptional(): void
     {
         $vo = new class ([]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'desc' => 'nullable|string|max:100',
             ];
         };
@@ -137,8 +137,8 @@ class IlluminateValidationTest extends TestCase
         $vo = new class ([
             'desc' => null,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'desc' => 'nullable|string|max:100',
             ];
         };
@@ -152,8 +152,8 @@ class IlluminateValidationTest extends TestCase
         $vo = new class ([
             'id' => '1',
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'id' => 'required|integer|min:1',
             ];
         };
@@ -169,8 +169,8 @@ class IlluminateValidationTest extends TestCase
         new class ([
             'id' => 0,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'id' => 'required|integer|min:1',
             ];
         };
@@ -179,8 +179,8 @@ class IlluminateValidationTest extends TestCase
     private function getValueObject(array $values): ValueObject
     {
         return new class ($values) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = IlluminateValidationTest::KEYS;
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = IlluminateValidationTest::KEYS;
         };
     }
 }

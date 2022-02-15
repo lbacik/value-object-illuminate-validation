@@ -85,8 +85,8 @@ class IlluminateValidationArrayTest extends TestCase
         return new class ([
             'array' => $array,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationArrayTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationArrayTest::VALIDATORS;
+            protected array $keys = [
                 'array' => 'present|array',
                 'array.*' => 'instance_of:' . Item::class,
             ];

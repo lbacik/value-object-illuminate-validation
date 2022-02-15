@@ -23,8 +23,8 @@ class IlluminateValidationIsInstanceOfTest extends TestCase
         $vo = new class ([
             'name' => $example,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
+            protected array $keys = [
                 'name' => IlluminateValidationValidator::INSTANCEOF_KEYWORD . ':' . ValueObject::class,
             ];
         };
@@ -39,8 +39,8 @@ class IlluminateValidationIsInstanceOfTest extends TestCase
         $vo = new class ([
             'name' => $example,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
+            protected array $keys = [
                 'name' => IlluminateValidationValidator::INSTANCEOF_KEYWORD . ':' . Fields::class,
             ];
         };
@@ -55,8 +55,8 @@ class IlluminateValidationIsInstanceOfTest extends TestCase
         $vo = new class ([
             'name' => $example,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
+            protected array $keys = [
                 'name' => IlluminateValidationValidator::INSTANCEOF_KEYWORD . ':' . \ArrayAccess::class,
             ];
         };
@@ -71,8 +71,8 @@ class IlluminateValidationIsInstanceOfTest extends TestCase
         $vo = new class ([
             'name' => $example,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
+            protected array $keys = [
                 'name' => IlluminateValidationValidator::INSTANCEOF_KEYWORD
                     . ':'
                     . ValueObject::class
@@ -93,8 +93,8 @@ class IlluminateValidationIsInstanceOfTest extends TestCase
         new class ([
             'name' => $example,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
+            protected array $keys = [
                 'name' => IlluminateValidationValidator::INSTANCEOF_KEYWORD . ':' . \Iterator::class,
             ];
         };
@@ -109,8 +109,8 @@ class IlluminateValidationIsInstanceOfTest extends TestCase
         new class ([
             'name' => $example,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
+            protected array $keys = [
                 'name' => IlluminateValidationValidator::INSTANCEOF_KEYWORD
                     . ':'
                     . \ArrayAccess::class
@@ -127,8 +127,8 @@ class IlluminateValidationIsInstanceOfTest extends TestCase
         new class ([
             'name' => null,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
+            protected array $keys = [
                 'name' => IlluminateValidationValidator::INSTANCEOF_KEYWORD . ':' . ValueObject::class,
             ];
         };
@@ -139,8 +139,8 @@ class IlluminateValidationIsInstanceOfTest extends TestCase
         $vo = new class ([
             'name' => null,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationIsInstanceOfTest::VALIDATORS;
+            protected array $keys = [
                 'name' => 'nullable|'
                     . IlluminateValidationValidator::INSTANCEOF_KEYWORD
                     . ':'

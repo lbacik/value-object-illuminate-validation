@@ -23,8 +23,8 @@ class IlluminateValidationDBTest extends TestCase
         new class ([
             'id' => 10,
         ]) extends ValueObject {
-            protected $validators = IlluminateValidationTest::VALIDATORS;
-            protected $keys = [
+            protected array $validators = IlluminateValidationTest::VALIDATORS;
+            protected array $keys = [
                 'id' => 'required|unique:sometable',
             ];
         };
