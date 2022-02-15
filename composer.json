@@ -7,12 +7,12 @@
     {
       "name": "Łukasz Bacik",
       "email": "mail@luka.sh",
-      "homepage": "http://luka.sh"
+      "homepage": "https://github.com/lbacik/value-object-illuminate-validation"
     }
   ],
   "require": {
-    "php": ">=7.4",
-    "lbacik/value-object": "*",
+    "php": ">=8.0",
+    "lbacik/value-object": "^0.4",
     "illuminate/validation": "^8"
   },
   "autoload": {
